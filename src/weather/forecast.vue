@@ -11,7 +11,7 @@
         </div>
       </ion-avatar>
       <ion-label>
-        <h1>{{ formatTemperature(daily.temp.day, 'F') }}</h1>
+        <h1>{{ formatTemperature(daily.temp.day, 'C') }}</h1>
         <h2>{{ daily.weather[0].description }}</h2>
         <p>{{ new Date(daily.dt * 1000).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
       </ion-label>

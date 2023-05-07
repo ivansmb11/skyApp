@@ -14,6 +14,7 @@ export function useWeather() {
     fetchWeather,
     getWeatherImageUrl,
     formatTemperature,
+    formatWindSpeed
   }
 }
 
@@ -28,5 +29,14 @@ function getWeatherImageUrl(iconName: string, size: '2x' | '4x') {
 }
 
 function formatTemperature(value: number, format: 'F' | 'C') {
-  return `${Math.round(value)}° ${format}`;
+  const celcius = (value - 32) * 5 / 9;
+  return `${Math.round(celcius)}° ${format}`;
+}
+
+function formatWindSpeed(value: number, format: 'mph' | 'km/h') {
+  if (format === 'km/h') {
+    return `${Math.round(value * 1.609)} ${format}`;
+  } else {
+    return `${Math.round(value)} ${format}`;
+  }
 }

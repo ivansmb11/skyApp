@@ -5,7 +5,7 @@
       </div>
       <ion-card-header>
         <ion-card-subtitle>{{ weather.current.weather[0].description }}</ion-card-subtitle>
-        <ion-card-title>{{ formatTemperature(weather.current.temp, 'F') }}</ion-card-title>
+        <ion-card-title>{{ formatTemperature(weather.current.temp, 'C') }}</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
@@ -13,11 +13,11 @@
 
           <ion-row>
             <ion-col>
-              Feels like {{ parseInt(weather.current.feels_like) }} &deg; F
+              Feels like {{ formatTemperature(weather.current.feels_like, 'C') }}
             </ion-col>
 
             <ion-col>
-              Wind Speed {{ parseInt(weather.current.wind_speed) }} mph
+              Wind {{ formatWindSpeed(weather.current.wind_speed, 'km/h') }}
             </ion-col>
           </ion-row>
 
@@ -46,7 +46,7 @@ export default defineComponent({
     ...commonIonicComponents,
   },
   setup () {
-    const { weather, fetchWeather, getWeatherImageUrl, formatTemperature } = useWeather();
+    const { weather, fetchWeather, getWeatherImageUrl, formatTemperature, formatWindSpeed } = useWeather();
     if (!weather?.value?.current) {
       fetchWeather();
     }
@@ -54,7 +54,8 @@ export default defineComponent({
     return {
       weather,
       getWeatherImageUrl,
-      formatTemperature
+      formatTemperature,
+      formatWindSpeed
     }
   }
 })

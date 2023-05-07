@@ -1,13 +1,10 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "weather-tabs",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "dist",
-  "plugins": {
-    "SplashScreen": {
-      "launchShowDuration": 0
-    }
+  "name": "skyscanner",
+  "integrations": {
+    "capacitor": {}
   },
+  "type": "vue",
+  "app-id": "com.hstia.skyscanner",
+  "webDir": "dist",
   "cordova": {}
 }
